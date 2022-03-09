@@ -1,6 +1,11 @@
+# ++++++++++++++++++++++++++++++++++++
+# Env: Abaqus python
+# Write by Zarhin
+# Data: 2022.03.09
+# Email: lizaixianvip@163.com
+# ++++++++++++++++++++++++++++++++++++
 from odbAccess import openOdb
 import numpy as np
-import pdb
 
 
 class Odb_data(object):

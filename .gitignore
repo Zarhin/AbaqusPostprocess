@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# abaqus result file
+*.odb
+
 # Distribution / packaging
 .Python
 build/
