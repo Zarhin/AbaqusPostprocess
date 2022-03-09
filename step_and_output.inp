@@ -1,0 +1,16 @@
+*Amplitude, name=Amp-1, input=disp.txt
+*Step, name=Step-1, nlgeom=YES
+*Dynamic, Explicit
+, 41.0,, 5e-05
+*Bulk Viscosity
+0.06, 1.2
+*Cload, amplitude=Amp-1
+221, 50
+*File Output
+*Output, field, time interval=0.02
+*Element Output, elset=all_element, directions=YES
+LE, PE, PEEQ, PEEQVAVG, PEVAVG, S, SF, SVAVG
+*Node Output, nset=all_node
+A, CF, RF, U, V
+*Output, history, frequency=0
+*End Step
