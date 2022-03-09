@@ -99,9 +99,12 @@ class Odb_data(object):
         # pdb.set_trace()
         for key, value in result_dict.items():
             _label = type2label[key]
-            _result_values = [_label] + value
             file_name = key + '.csv'
-            np.savetxt(file_name, _result_values, delimiter=',', fmt='%s')
+            np.savetxt(file_name,
+                       value,
+                       delimiter=',',
+                       header=_label,
+                       comments='')
         print('Ending extract data!!!')
         return None
 
@@ -142,20 +145,20 @@ class Odb_data(object):
                 if result_key not in type2label.keys():
                     component_labels = result.componentLabels
                     if res_type == 'node':
-                        node_label = []
+                        node_label = ''
                         for v in _result_value:
                             for comp in component_labels:
-                                node_label += [
-                                    '{0}:{1}'.format(v.nodeLabel, comp)
-                                ]
+                                node_label += '{0}:{1}, '.format(
+                                    v.nodeLabel, comp)
+                        node_label = node_label[:-2]
                         type2label[result_key] = node_label
                     else:
-                        ele_label = []
+                        ele_label = ''
                         for v in _result_value:
                             for comp in component_labels:
-                                ele_label += [
-                                    '{0}:{1}'.format(v.elementLabel, comp)
-                                ]
+                                ele_label += '{0}:{1}, '.format(
+                                    v.elementLabel, comp)
+                        ele_label = ele_label[:-2]
                         type2label[result_key] = ele_label
         return result_dict, type2label
 
