@@ -100,11 +100,9 @@ class Odb_data(object):
         for key, value in result_dict.items():
             _label = type2label[key]
             file_name = key + '.csv'
-            np.savetxt(file_name,
-                       value,
-                       delimiter=',',
-                       header=_label,
-                       comments='')
+            with open(file_name, 'w') as f:
+                f.writelines(_label + '\n')
+                np.savetxt(f, value, delimiter=',', fmt='%f')
         print('Ending extract data!!!')
         return None
 
