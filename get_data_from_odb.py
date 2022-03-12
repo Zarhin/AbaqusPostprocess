@@ -146,7 +146,7 @@ class Odb_data(object):
                         node_label = ''
                         for v in _result_value:
                             for comp in component_labels:
-                                node_label += '{0}:{1}, '.format(
+                                node_label += '{0}:{1},'.format(
                                     v.nodeLabel, comp)
                         node_label = node_label[:-2]
                         type2label[result_key] = node_label
@@ -154,7 +154,7 @@ class Odb_data(object):
                         ele_label = ''
                         for v in _result_value:
                             for comp in component_labels:
-                                ele_label += '{0}:{1}, '.format(
+                                ele_label += '{0}:{1},'.format(
                                     v.elementLabel, comp)
                         ele_label = ele_label[:-2]
                         type2label[result_key] = ele_label
